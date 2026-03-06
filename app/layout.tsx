@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href="/pazar" style={{ color: 'white', textDecoration: 'none' }}>Pazar</a>
           <a href="/kayit" style={{ color: 'white', textDecoration: 'none' }}>Kayıt Ol</a>
           <a href="/giris" style={{ color: 'white', textDecoration: 'none' }}>Giriş Yap</a>
+          <a href="/kovanlar" style={{ color: 'white', textDecoration: 'none' }}>Kovanlar</a>
           <a href="/profil" style={{ color: 'white', textDecoration: 'none' }}>Profilim</a>
         </nav>
         {children}
@@ -30,4 +31,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
 
