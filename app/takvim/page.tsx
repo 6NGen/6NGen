@@ -78,4 +78,3 @@ border: i === buAy ? '1px solid #E8960A' : '1px solid #333',
     </div>
   )
 }
-
