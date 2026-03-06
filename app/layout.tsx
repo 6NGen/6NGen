@@ -27,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href="/giris" style={{ color: 'white', textDecoration: 'none' }}>Giriş Yap</a>
           <a href="/kovanlar" style={{ color: 'white', textDecoration: 'none' }}>Kovanlar</a>
           <a href="/profil" style={{ color: 'white', textDecoration: 'none' }}>Profilim</a>
+          <a href="/mentor" style={{ color: 'white', textDecoration: 'none' }}>Mentor</a>
         </nav>
         {children}
       </body>
