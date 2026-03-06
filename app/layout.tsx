@@ -21,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href="/" style={{ color: 'white', textDecoration: 'none' }}>Ana Sayfa</a>
           <a href="/aricilar" style={{ color: 'white', textDecoration: 'none' }}>Arıcılar</a>
           <a href="/pazar" style={{ color: 'white', textDecoration: 'none' }}>Pazar</a>
+          <a href="/takvim" style={{ color: 'white', textDecoration: 'none' }}>Takvim</a>
           <a href="/kayit" style={{ color: 'white', textDecoration: 'none' }}>Kayıt Ol</a>
           <a href="/giris" style={{ color: 'white', textDecoration: 'none' }}>Giriş Yap</a>
           <a href="/kovanlar" style={{ color: 'white', textDecoration: 'none' }}>Kovanlar</a>
@@ -31,5 +32,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
 
 
