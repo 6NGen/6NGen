@@ -61,14 +61,19 @@ export default function Mesajlar() {
   const mesajGonder = async () => {
     if (!yeniMesaj.trim()) return
     const hedef = aktifKisi || yeniKisiEmail
-
+    const mesajIcerigi = yeniMesaj
     const { error } = await supabase.from('mesajlar').insert([{
       gonderen_email: kullanici.email,
       alici_email: hedef,
       icerik: yeniMesaj,
       okundu: false
     }])
-
+      await supabase.from('bildirimler').insert([{
+      alici_email: hedef,
+      mesaj: kullanici.email + ' size bir mesaj gonderdi: ' + mesajIcerigi,
+      okundu: false,
+      tip: 'mesaj'
+    }])
     if (error) {
       setMesajGonderildi('Hata: ' + error.message)
     } else {
