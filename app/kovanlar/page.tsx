@@ -78,7 +78,7 @@ export default function Kovanlar() {
       ) : (
         kovanlar.map((kovan, i) => (
           <div key={i} style={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: '12px', padding: '1.5rem', marginBottom: '1rem' }}>
-            <h2 style={{ color: '#E8960A', marginBottom: '0.5rem' }}>🏠 {kovan.isim}</h2>
+            <a href={'/kovanlar/' + kovan.id} style={{ color: '#E8960A', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold', display: 'block', marginBottom: '0.5rem' }}>🏠 {kovan.isim}</a>
             <p>🐝 {kovan.tur}</p>
             <p>📍 {kovan.konum}</p>
             {kovan.notlar && <p style={{ color: '#ccc', marginTop: '0.5rem', fontStyle: 'italic' }}>📝 {kovan.notlar}</p>}
