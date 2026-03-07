@@ -28,12 +28,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href="/kovanlar" style={{ color: 'white', textDecoration: 'none' }}>Kovanlar</a>
           <a href="/profil" style={{ color: 'white', textDecoration: 'none' }}>Profilim</a>
           <a href="/mentor" style={{ color: 'white', textDecoration: 'none' }}>Mentor</a>
+          <a href="/bildirimler" style={{ color: '#E8960A', textDecoration: 'none' }}>🔔</a>
         </nav>
         {children}
       </body>
     </html>
   )
 }
+
 
 
 
