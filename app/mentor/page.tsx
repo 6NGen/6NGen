@@ -76,7 +76,6 @@ export default function Mentor() {
 
   const istegiKabul = async (id: number, gonderenEmail: string) => {
     await supabase.from('mentor_istekleri').update({ durum: 'kabul edildi' }).eq('id', id)
-    console.log('Bildirim gönderiliyor:', hedefEmail)
     await supabase.from('bildirimler').insert([{
       alici_email: gonderenEmail,
       mesaj: kullanici.email + ' mentor isteginizi kabul etti',
