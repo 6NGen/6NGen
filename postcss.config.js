@@ -1,9 +1,9 @@
 // 6NGen — PostCSS Konfigürasyonu
-// Tailwind v4 için @tailwindcss/postcss kullanılır
+// Tailwind v3 ve Autoprefixer burada aktif edilir
 
 module.exports = {
   plugins: {
-    '@tailwindcss/postcss': {},
+    tailwindcss: {},
     autoprefixer: {},
   },
 }
