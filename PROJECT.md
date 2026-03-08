@@ -56,3 +56,8 @@ https://6ngen.vercel.app
 
 ## Çalışma Yöntemi
 VS Code'da kod yaz → localhost:3000'de test et → git add, commit, push → Vercel otomatik deploy eder
+## CSS Stratejisi
+- Tailwind CSS v3.4.17 kurulu
+- Mevcut sayfalar: inline style (dokunma)
+- Yeni sayfalar: Tailwind className ile yaz
+- tailwind.config.js ve postcss.config.js proje kökünde

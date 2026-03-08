@@ -1,6 +1,6 @@
 @tailwind base; 
 @tailwind components;
-@tailwind utulities;
+@tailwind utilities;
 
 @theme {
   --color-ari-turuncu: #E8960A;
