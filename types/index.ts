@@ -1,3 +1,5 @@
+// 6NGen Platform — Merkezi TypeScript Tipleri
+
 export interface Kullanici {
   id: string
   email: string
@@ -17,11 +19,11 @@ export interface Arici {
 
 export interface Kovan {
   id: number
+  user_id?: string
   isim: string
   tur: string
   konum: string
   notlar: string
-  kullanici_email: string
   created_at?: string
 }
 
@@ -36,6 +38,7 @@ export interface KovanKayit {
 
 export interface Ilan {
   id: number
+  user_id?: string
   baslik: string
   aciklama: string
   fiyat: number
@@ -47,6 +50,8 @@ export interface Ilan {
 
 export interface Mesaj {
   id: number
+  gonderen_id: string
+  alici_id: string
   gonderen_email: string
   alici_email: string
   icerik: string
@@ -56,6 +61,7 @@ export interface Mesaj {
 
 export interface Bildirim {
   id: number
+  alici_id: string
   alici_email: string
   mesaj: string
   okundu: boolean
@@ -65,6 +71,7 @@ export interface Bildirim {
 
 export interface Uyari {
   id: number
+  user_id?: string
   baslik: string
   aciklama: string
   il: string
@@ -75,6 +82,8 @@ export interface Uyari {
 
 export interface MentorIstegi {
   id: number
+  gonderen_id: string
+  alan_id: string
   gonderen_email: string
   alan_email: string
   durum: 'beklemede' | 'kabul edildi' | 'reddedildi'
