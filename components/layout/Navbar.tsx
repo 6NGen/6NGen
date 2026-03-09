@@ -12,10 +12,10 @@ const LINKLER = [
   { href: '/aricilar',    label: 'Arıcılar'     },
   { href: '/pazar',       label: 'Pazar'        },
   { href: '/takvim',      label: 'Takvim'       },
-  { href: '/uyarilar',    label: '⚠️ Uyarılar'  },
+  { href: '/uyarilar',    label: '⚠️Uyarılar'  },
   { href: '/mentor',      label: 'Mentor'       },
   { href: '/kovanlar',    label: 'Kovanlar'     },
-  { href: '/mesajlar',    label: '💬 Mesajlar'  },
+  { href: '/mesajlar',    label: '💬Mesajlar'  },
 ]
 
 export default function Navbar() {

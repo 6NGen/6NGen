@@ -61,3 +61,7 @@ VS Code'da kod yaz → localhost:3000'de test et → git add, commit, push → V
 - Mevcut sayfalar: inline style (dokunma)
 - Yeni sayfalar: Tailwind className ile yaz
 - tailwind.config.js ve postcss.config.js proje kökünde
+## Gelecek Özellikler (Yol Haritası)
+- Mera Rehberi: Harita tabanlı konaklama, çiçeklenme ve su kaynakları
+- Eğitim & Akademi: Canlı yayın, hastalık teşhis video kütüphanesi  
+- Bal Ormanı: Arıcı-yatırımcı kitle fonlama sistemi
