@@ -1,9 +1,11 @@
+// 6NGen — Dosya: app/kayit/page.tsx
+// Görev: Yeni kullanıcı kayıt formu — Tailwind CSS v3, Supabase Auth
+
 'use client'
 
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 
-// Kayıt formu için tip tanımı
 interface KayitForm {
   ad_soyad: string
   email: string
@@ -14,15 +16,20 @@ interface KayitForm {
   ari_turleri: string
 }
 
+const ALANLAR = [
+  { key: 'ad_soyad',     placeholder: 'Ad Soyad *',                 type: 'text'     },
+  { key: 'email',        placeholder: 'E-posta *',                  type: 'email'    },
+  { key: 'sifre',        placeholder: 'Şifre * (en az 6 karakter)', type: 'password' },
+  { key: 'il',           placeholder: 'İl (örn: Erzincan)',         type: 'text'     },
+  { key: 'deneyim_yili', placeholder: 'Deneyim Yılı',               type: 'number'   },
+  { key: 'kovan_sayisi', placeholder: 'Kovan Sayısı',               type: 'number'   },
+  { key: 'ari_turleri',  placeholder: 'Arı Türleri (örn: Anadolu)', type: 'text'     },
+]
+
 export default function Kayit() {
   const [form, setForm] = useState<KayitForm>({
-    ad_soyad: '',
-    email: '',
-    sifre: '',
-    il: '',
-    deneyim_yili: '',
-    kovan_sayisi: '',
-    ari_turleri: ''
+    ad_soyad: '', email: '', sifre: '', il: '',
+    deneyim_yili: '', kovan_sayisi: '', ari_turleri: ''
   })
   const [mesaj, setMesaj] = useState('')
   const [yukleniyor, setYukleniyor] = useState(false)
@@ -35,7 +42,7 @@ export default function Kayit() {
   // Kayıt işlemini gerçekleştir
   const handleSubmit = async () => {
     if (!form.email || !form.sifre || !form.ad_soyad) {
-      setMesaj('Ad soyad, email ve şifre zorunludur!')
+      setMesaj('Ad soyad, e-posta ve şifre zorunludur!')
       return
     }
     if (form.sifre.length < 6) {
@@ -77,73 +84,41 @@ export default function Kayit() {
     setYukleniyor(false)
   }
 
-  const alanlar = [
-    { key: 'ad_soyad',      placeholder: 'Ad Soyad *',                    type: 'text'     },
-    { key: 'email',         placeholder: 'Email *',                        type: 'email'    },
-    { key: 'sifre',         placeholder: 'Şifre * (en az 6 karakter)',     type: 'password' },
-    { key: 'il',            placeholder: 'İl (örn: Erzincan)',             type: 'text'     },
-    { key: 'deneyim_yili',  placeholder: 'Deneyim Yılı',                   type: 'number'   },
-    { key: 'kovan_sayisi',  placeholder: 'Kovan Sayısı',                   type: 'number'   },
-    { key: 'ari_turleri',   placeholder: 'Arı Türleri (örn: Anadolu)',     type: 'text'     },
-  ]
-
   return (
-    <div style={{ padding: '2rem', maxWidth: '500px', margin: '0 auto' }}>
-      <h1 style={{ color: '#E8960A', marginBlockEnd: '0.5rem' }}>🐝 6NGen — Kayıt Ol</h1>
-      <p style={{ color: '#888', marginBlockEnd: '2rem' }}>Türkiye'nin arıcılık platformuna katıl</p>
+    <div className="max-w-md mx-auto px-4 py-12">
+      <h1 className="text-3xl font-bold text-orange-500 text-center mb-2">🐝 6NGen</h1>
+      <p className="text-gray-400 text-center mb-8">Türkiye'nin arıcılık platformuna katıl</p>
 
-      {alanlar.map(alan => (
-        <input
-          key={alan.key}
-          type={alan.type}
-          placeholder={alan.placeholder}
-          onChange={e => guncelle(alan.key as keyof KayitForm, e.target.value)}
-          style={{
-            display: 'block',
-            width: '100%',
-            paddingBlock: '0.75rem',
-            paddingInline: '1rem',
-            marginBlockEnd: '1rem',
-            background: '#1a1a1a',
-            border: '1px solid #333',
-            color: 'white',
-            borderRadius: '8px',
-            fontSize: '1rem',
-            boxSizing: 'border-box'
-          }}
-        />
-      ))}
+      <div className="space-y-4">
+        {ALANLAR.map(alan => (
+          <input
+            key={alan.key}
+            type={alan.type}
+            placeholder={alan.placeholder}
+            value={form[alan.key as keyof KayitForm]}
+            onChange={e => guncelle(alan.key as keyof KayitForm, e.target.value)}
+            className="w-full bg-gray-900 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+        ))}
+      </div>
 
       <button
         onClick={handleSubmit}
         disabled={yukleniyor}
-        style={{
-          width: '100%',
-          paddingBlock: '0.75rem',
-          background: '#E8960A',
-          border: 'none',
-          borderRadius: '8px',
-          cursor: yukleniyor ? 'default' : 'pointer',
-          fontWeight: 'bold',
-          fontSize: '1rem',
-          opacity: yukleniyor ? 0.7 : 1
-        }}
+        className="w-full mt-6 bg-orange-500 hover:bg-orange-600 disabled:opacity-60 text-black font-bold py-3 rounded-lg transition-colors"
       >
         {yukleniyor ? 'Kaydediliyor...' : 'Kayıt Ol'}
       </button>
 
       {mesaj && (
-        <p style={{
-          marginBlockStart: '1rem',
-          color: mesaj.includes('✅') ? '#4CAF50' : '#e74c3c'
-        }}>
+        <p className={`mt-4 text-center text-sm ${mesaj.includes('✅') ? 'text-green-400' : 'text-red-400'}`}>
           {mesaj}
         </p>
       )}
 
-      <p style={{ color: '#888', marginBlockStart: '1.5rem', textAlign: 'center' }}>
+      <p className="text-gray-500 text-center mt-6 text-sm">
         Zaten üye misin?{' '}
-        <a href="/giris" style={{ color: '#E8960A' }}>Giriş Yap</a>
+        <a href="/giris" className="text-orange-500 hover:underline">Giriş Yap</a>
       </p>
     </div>
   )
